@@ -1,36 +1,36 @@
 package core.basesyntax.services;
 
 import core.basesyntax.figures.*;
+
 import java.util.Random;
 
 public class FigureSupplier {
-    public Figure getRandomFigure(){
-        ColorSupplier service = new ColorSupplier();
-        String color = service.getRandomColor();
+    private static final int RANGE_OF_RANDOM_SIZE = 100;
+    private static final int RADIUS_FOR_DEFAULT_FIGURE = 10;
 
-        Random rand = new Random();
+    public Figure getRandomFigure() {
+        ColorSupplier colorSupplier = new ColorSupplier();
+        Color color = colorSupplier.getRandomColor();
+
+        Random random = new Random();
 
         Shape[] figures = Shape.values();
-        String figure = String.valueOf(figures[rand.nextInt(figures.length)]).toLowerCase();
+        Shape figure = figures[random.nextInt(figures.length)];
 
-        int firstLength = rand.nextInt(100);
-        int secondLength = rand.nextInt(100);
-        int thirdLength = rand.nextInt(100);
+        int firstLength = random.nextInt(RANGE_OF_RANDOM_SIZE);
+        int secondLength = random.nextInt(RANGE_OF_RANDOM_SIZE);
+        int thirdLength = random.nextInt(RANGE_OF_RANDOM_SIZE);
 
-        switch (figure) {
-            case "circle":
-                return new Circle(color, firstLength);
-            case "square":
-                return new Square(color, firstLength);
-            case "isoscelestrapezoid":
-                return new IsoscelesTrapezoid(color, firstLength, secondLength, thirdLength);
-            case "righttriangle":
-                return new RightTriangle(color, firstLength, secondLength);
-            default: return this.getDefaultFigure();
-        }
+        return switch (figure) {
+            case CIRCLE -> new Circle(color, firstLength);
+            case SQUARE -> new Square(color, firstLength);
+            case ISOSCELESTRAPEZOID -> new IsoscelesTrapezoid(color, firstLength, secondLength, thirdLength);
+            case RIGHTTRIANGLE -> new RightTriangle(color, firstLength, secondLength);
+            default -> this.getDefaultFigure();
+        };
     }
 
-    public Figure getDefaultFigure(){
-        return new Circle("white", 10);
+    public Figure getDefaultFigure() {
+        return new Circle(Color.WHITE, RADIUS_FOR_DEFAULT_FIGURE);
     }
 }

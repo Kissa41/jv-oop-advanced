@@ -1,10 +1,12 @@
 package core.basesyntax.figures;
 
-public class RightTriangle extends Figure implements Countable {
-    int firstLeg;
-    int secondLeg;
+import core.basesyntax.services.Color;
 
-    public RightTriangle(String color, int firstLeg, int secondLeg) {
+public class RightTriangle extends Figure {
+    public int firstLeg;
+    public int secondLeg;
+
+    public RightTriangle(Color color, int firstLeg, int secondLeg) {
         super(color);
         this.firstLeg = firstLeg;
         this.secondLeg = secondLeg;
@@ -12,13 +14,13 @@ public class RightTriangle extends Figure implements Countable {
 
     @Override
     public float getArea() {
-        return (this.firstLeg * this.secondLeg) / 2;
+        return (float) (this.firstLeg * this.secondLeg) / 2;
     }
 
     @Override
     public void draw() {
-        System.out.println( "Figure: right triangle, area: " + this.getArea() +
+        System.out.println("Figure: right triangle, area: " + this.getArea() +
                 "sq. units, firstLeg: " + this.firstLeg + " units, secondLeg: " +
-                this.secondLeg + " units, color: " + this.color);
+                this.secondLeg + " units, color: " + Color.getValue(this.color));
     }
 }

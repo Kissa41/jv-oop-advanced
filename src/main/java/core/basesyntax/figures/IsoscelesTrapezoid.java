@@ -1,11 +1,13 @@
 package core.basesyntax.figures;
 
-public class IsoscelesTrapezoid extends Figure implements Countable {
-    int firstSide;
-    int secondSide;
-    int height;
+import core.basesyntax.services.Color;
 
-    public IsoscelesTrapezoid(String color, int firstSide, int secondSide, int height) {
+public class IsoscelesTrapezoid extends Figure {
+    public int firstSide;
+    public int secondSide;
+    public int height;
+
+    public IsoscelesTrapezoid(Color color, int firstSide, int secondSide, int height) {
         super(color);
         this.firstSide = firstSide;
         this.secondSide = secondSide;
@@ -14,13 +16,13 @@ public class IsoscelesTrapezoid extends Figure implements Countable {
 
     @Override
     public float getArea() {
-        return (this.firstSide + this.secondSide)/2 * this.height;
+        return (float) (this.firstSide + this.secondSide) / 2 * this.height;
     }
 
     @Override
     public void draw() {
-        System.out.println( "Figure: circle, area: " + this.getArea() + "sq. units, firstSide: "
+        System.out.println("Figure: circle, area: " + this.getArea() + "sq. units, firstSide: "
                 + this.firstSide + " units, secondSide: " + this.secondSide + " units, height: "
-                + this.height + " units, color: " + this.color);
+                + this.height + " units, color: " + Color.getValue(this.color));
     }
 }

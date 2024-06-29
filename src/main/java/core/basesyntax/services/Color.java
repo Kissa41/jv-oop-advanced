@@ -1,14 +1,25 @@
 package core.basesyntax.services;
 
 public enum Color {
-    RED,
-    ORANGE,
-    YELLOW,
-    GREEN,
-    BLUE,
-    PURPLE,
-    PINK,
-    BROWN,
-    GRAY,
-    BLACK
+    RED("red"),
+    ORANGE("orange"),
+    YELLOW("yellow"),
+    GREEN("green"),
+    BLUE("blue"),
+    PURPLE("purple"),
+    PINK("pink"),
+    BROWN("brown"),
+    GRAY("gray"),
+    BLACK("black"),
+    WHITE("white");
+
+    private final String value;
+
+    Color(String value) {
+        this.value = value;
+    }
+
+    public static String getValue(Color color) {
+        return color.value;
+    }
 }

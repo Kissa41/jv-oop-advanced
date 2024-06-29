@@ -1,8 +1,11 @@
 package core.basesyntax.figures;
 
-public class Square extends Figure implements Countable {
-    int side;
-    public Square(String color, int side) {
+import core.basesyntax.services.Color;
+
+public class Square extends Figure {
+    public int side;
+
+    public Square(Color color, int side) {
         super(color);
         this.side = side;
     }
@@ -14,7 +17,7 @@ public class Square extends Figure implements Countable {
 
     @Override
     public void draw() {
-        System.out.println( "Figure: square, area: " + this.getArea() +
-                "sq. units, side: " + this.side + " units, color: " + this.color);
+        System.out.println("Figure: square, area: " + this.getArea() +
+                "sq. units, side: " + this.side + " units, color: " + Color.getValue(this.color));
     }
 }

@@ -1,21 +1,23 @@
 package core.basesyntax.figures;
 
-public class Circle extends Figure implements Countable {
-    int radius;
-    private float Pi = 3.14f;
-    public Circle(String color, int radius) {
+import core.basesyntax.services.Color;
+
+public class Circle extends Figure {
+    public int radius;
+
+    public Circle(Color color, int radius) {
         super(color);
         this.radius = radius;
     }
 
     @Override
     public float getArea() {
-        return (float) (this.Pi * Math.pow(this.radius, 2));
+        return (float) (Math.PI * Math.pow(this.radius, 2));
     }
 
     @Override
     public void draw() {
-        System.out.println( "Figure: circle, area: " + this.getArea() + "sq. units, radius: "
-                + this.radius + " units, color: " + this.color);
+        System.out.println("Figure: circle, area: " + this.getArea() + "sq. units, radius: "
+                + this.radius + " units, color: " +  Color.getValue(this.color));
     }
 }

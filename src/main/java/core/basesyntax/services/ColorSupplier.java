@@ -4,9 +4,10 @@ import java.util.Random;
 
 public class ColorSupplier {
 
-    public String getRandomColor(){
+    public Color getRandomColor() {
         Color[] colors = Color.values();
-        Random rand = new Random();
-        return String.valueOf(colors[rand.nextInt(colors.length)]).toLowerCase();
+        Random random = new Random();
+
+        return colors[random.nextInt(colors.length)];
     }
 }
