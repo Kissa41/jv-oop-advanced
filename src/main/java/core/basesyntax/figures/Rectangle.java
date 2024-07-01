@@ -21,7 +21,7 @@ public class Rectangle extends Figure {
     public void draw() {
         System.out.println("Figure: rectangle, area: " + this.getArea() +
                 "sq. units, first side: " + this.firstSide + " units, second side: " +
-                this.secondSide + " units, color: " + Color.getValue(this.color));
+                this.secondSide + " units, color: " + color.getValue());
     }
 }
 

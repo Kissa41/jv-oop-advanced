@@ -16,10 +16,12 @@ public enum Color {
     private final String value;
 
     Color(String value) {
+
         this.value = value;
     }
 
-    public static String getValue(Color color) {
-        return color.value;
+    public String getValue() {
+
+        return value;
     }
 }
